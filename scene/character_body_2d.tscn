@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bqc3ohy41gaxm"]
+
+[ext_resource type="Texture2D" uid="uid://lxsc6u3fl865" path="res://assets/stickman_dance_spreadsheet.png" id="1_f50pn"]
+[ext_resource type="Script" uid="uid://do6tl1k54jyji" path="res://script/character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="Texture2D" uid="uid://b4hku1duffvf4" path="res://assets/bar.png" id="2_ghijl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij6vw"]
+atlas = ExtResource("1_f50pn")
+region = Rect2(0, 0, 13, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghijl"]
+atlas = ExtResource("1_f50pn")
+region = Rect2(13, 0, 13, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44cfe"]
+atlas = ExtResource("1_f50pn")
+region = Rect2(26, 0, 13, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd465"]
+atlas = ExtResource("1_f50pn")
+region = Rect2(39, 0, 13, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lhvu3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij6vw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghijl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44cfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd465")
+}],
+"loop": true,
+"name": &"Dance",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij6vw"]
+size = Vector2(14, 24)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ij6vw")
+
+[node name="HpBar" type="TextureProgressBar" parent="."]
+modulate = Color(0, 1, 0, 1)
+self_modulate = Color(0, 1, 0, 1)
+offset_left = -12.0
+offset_top = 13.0
+offset_right = 12.0
+offset_bottom = 18.0
+value = 100.0
+texture_progress = ExtResource("2_ghijl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_lhvu3")
+animation = &"Dance"
+frame_progress = 0.5248869
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ij6vw")
