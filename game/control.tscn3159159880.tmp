@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddw8eu16j846s"]
+
+[ext_resource type="PackedScene" uid="uid://bqc3ohy41gaxm" path="res://character_body_2d.tscn" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://diae7ykr3dla2" path="res://Script/control.gd" id="1_qtu10"]
+[ext_resource type="Texture2D" uid="uid://2csgn61iq7md" path="res://assets/Zoom-.png" id="3_ee4bf"]
+[ext_resource type="Texture2D" uid="uid://fbk6vuw5xec3" path="res://assets/Zoom+.png" id="4_kbped"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 0.994
+anchor_bottom = 0.99600005
+offset_right = -0.08001709
+offset_bottom = -0.08001709
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qtu10")
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("1_0fbet")]
+position = Vector2(200, 240)
+
+[node name="HpBar" type="ProgressBar" parent="CharacterBody2D2"]
+offset_left = -32.0
+offset_top = -47.0
+offset_right = 32.0
+offset_bottom = -20.0
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_0fbet")]
+position = Vector2(160, 240)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="zoom_plus" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_bottom = 24.0
+grow_horizontal = 0
+icon = ExtResource("4_kbped")
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="zoom_minus" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_top = 28.0
+offset_bottom = 52.0
+grow_horizontal = 0
+icon = ExtResource("3_ee4bf")
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Attack" type="Button" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 240.0
+offset_right = 184.0
+offset_bottom = 248.0
